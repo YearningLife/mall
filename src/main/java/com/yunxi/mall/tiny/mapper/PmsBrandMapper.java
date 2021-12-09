@@ -3,6 +3,7 @@ package com.yunxi.mall.tiny.mapper;
 import com.yunxi.mall.tiny.entity.PmsBrand;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.yunxi.mall.tiny.entity.PmsBrandExample;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -15,7 +16,7 @@ import java.util.List;
  * @author 齐鹏飞
  * @since 2021-12-08
  */
-
+@Mapper
 public interface PmsBrandMapper extends BaseMapper<PmsBrand> {
 
     int countByExample(PmsBrandExample example);

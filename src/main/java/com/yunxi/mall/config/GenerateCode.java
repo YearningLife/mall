@@ -34,7 +34,7 @@ public class GenerateCode {
         //是否覆盖已有文件，默认false
         gc.setFileOverride(true);
         //实体属性 Swagger2 注解
-        //gc.setSwagger2(true);
+        gc.setSwagger2(true);
         //mapper.xml中生成通用查询结果列
         gc.setBaseColumnList(true);
         //mapper.xml中生成通用查询映射结果
@@ -87,7 +87,7 @@ public class GenerateCode {
         //生成 @RestController 控制器
         strategy.setRestControllerStyle(true);
         //需要包含的表名，允许正则表达式
-        strategy.setInclude("pms_brand");
+        strategy.setInclude("ums_member");
         //驼峰转连字符
         strategy.setControllerMappingHyphenStyle(true);
         //表前缀

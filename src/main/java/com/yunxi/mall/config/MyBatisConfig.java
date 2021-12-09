@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Configuration;
  * @version: 1.0
  */
 @Configuration
-@MapperScan("com.yunxi.mall.tiny.mapper")
 public class MyBatisConfig {
 
 }

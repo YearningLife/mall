@@ -1,8 +1,12 @@
-mysql:
-    name: root
-    pwd: root
+customize:
     host: localhost
-    port: 33601
+    sql:
+        username: root
+        pwd: root
+        port: 33601
+    redis:
+        port: 6379
+        pwd: root
 
 server:
     port: 8080
@@ -12,9 +16,9 @@ spring:
         type: com.alibaba.druid.pool.DruidDataSource
         druid:
             driver-class-name:  com.mysql.cj.jdbc.Driver
-            url: jdbc:mysql://${mysql.host}:${mysql.port}/mall?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
-            username: ${mysql.name}
-            password: ${mysql.pwd}
+            url: jdbc:mysql://${customize.host}:${customize.sql.port}/mall?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false
+            username: ${customize.sql.username}
+            password: ${customize.sql.pwd}
             initial-size: 10
             max-active: 100
             min-idle: 10
@@ -41,8 +45,34 @@ spring:
                 wall:
                     config:
                         multi-statement-allow: true
+    redis:
+        database: 0
+        host: ${customize.host}
+        port: ${customize.redis.port}
+        password: ${customize.redis.pwd}
+        jedis:
+            pool:
+                max-active: 8 # 连接池最大连接数（使用负值表示没有限制）
+                max-wait: -1ms # 连接池最大阻塞等待时间（使用负值表示没有限制）
+                max-idle: 8 # 连接池中的最大空闲连接
+                min-idle: 0 # 连接池中的最小空闲连接
+        timeout: 3000ms # 连接超时时间（毫秒）
+        key:
+            prefix:
+                authCode: "portal:authCode:"
+            expire:
+                authCode: 120 # 验证码超期时间
 
-mybatis:
+
+mybatis-plus:
     mapper-locations:
         - classpath:mapper/*.xml
         - classpath*:com/**/mapper/*.xml
+
+debug: false
+
+
+logging:
+    level:
+        org.springframework.context.*: info
+        com.yunxi.mall.tiny.*: debug

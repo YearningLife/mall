@@ -1,12 +1,10 @@
 package com.yunxi.mall.tiny.service.impl;
 
-import com.github.pagehelper.PageHelper;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.yunxi.mall.tiny.entity.PmsBrand;
 import com.yunxi.mall.tiny.entity.PmsBrandExample;
 import com.yunxi.mall.tiny.mapper.PmsBrandMapper;
 import com.yunxi.mall.tiny.service.IPmsBrandService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -49,7 +47,7 @@ public class PmsBrandServiceImpl extends ServiceImpl<PmsBrandMapper, PmsBrand> i
 
     @Override
     public List<PmsBrand> listBrand(int pageNum, int pageSize) {
-        PageHelper.startPage(pageNum, pageSize);
+       // PageHelper.startPage(pageNum, pageSize);
         return brandMapper.selectByExample(new PmsBrandExample());
     }
 
