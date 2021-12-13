@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.yunxi.mall.tiny.mapper")
+@MapperScan({"com.yunxi.mall.tiny.mapper","com.yunxi.mall.security.mapper"})
 public class MallApplication {
 
     public static void main(String[] args) {
