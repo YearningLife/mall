@@ -1,5 +1,7 @@
 package com.yunxi.mall.config;
 
+
+import io.swagger.annotations.Api;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -38,7 +40,7 @@ public class Swagger2Config {
         return new ApiInfoBuilder()
                 .title("SwaggerUI")
                 .description("mall-tiny")
-                .contact("qpf")
+                // .contact("qpf")
                 .version("1.0")
                 .build();
     }
